@@ -1,17 +1,7 @@
-import {
-	ListItemText,
-	Checkbox,
-	List,
-	IconButton,
-	ListItem,
-	CardHeader,
-	Grid,
-	Card,
-	ListItemButton,
-	ListItemIcon
-} from '@mui/material';
-import CommentIcon from '@mui/icons-material/Comment';
+import { CardHeader, Grid, Card } from '@mui/material';
+
 import './App.css';
+import { Todos } from './components/Todos';
 
 function App() {
 	return (
@@ -19,36 +9,7 @@ function App() {
 			<Grid item xs={12}>
 				<Card sx={{ minWidth: 400 }}>
 					<CardHeader title="Todos" />
-					<List sx={{ width: '100%' }}>
-						{[0, 1, 2, 3].map(value => {
-							const labelId = `checkbox-list-label-${value}`;
-
-							return (
-								<ListItem
-									key={value}
-									secondaryAction={
-										<IconButton edge="end" aria-label="comments">
-											<CommentIcon />
-										</IconButton>
-									}
-									disablePadding
-								>
-									<ListItemButton role={undefined} onClick={() => {}} dense>
-										<ListItemIcon>
-											<Checkbox
-												edge="start"
-												checked={false}
-												tabIndex={-1}
-												disableRipple
-												inputProps={{ 'aria-labelledby': labelId }}
-											/>
-										</ListItemIcon>
-										<ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-									</ListItemButton>
-								</ListItem>
-							);
-						})}
-					</List>
+					<Todos />
 				</Card>
 			</Grid>
 		</Grid>
