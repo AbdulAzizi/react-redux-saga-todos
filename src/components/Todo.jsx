@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListItem, IconButton, ListItemButton, ListItemIcon, Checkbox, ListItemText } from '@mui/material';
-import CommentIcon from '@mui/icons-material/Comment';
+import { Delete } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 
 export const Todo = ({ userId, id, title, completed }) => {
@@ -9,15 +9,19 @@ export const Todo = ({ userId, id, title, completed }) => {
 	return (
 		<ListItem
 			secondaryAction={
-				<IconButton edge="end" aria-label="comments">
-					<CommentIcon />
+				<IconButton
+					onClick={() => dispatch({ type: 'DELETE_TODO', payload: { userId, id, title, completed: !completed } })}
+					edge="end"
+					aria-label="comments"
+				>
+					<Delete />
 				</IconButton>
 			}
 			disablePadding
 		>
 			<ListItemButton
 				role={undefined}
-				onClick={() => dispatch({ type: 'EDIT_COMPLETED', payload: { userId, id, title, completed: !completed } })}
+				onClick={() => dispatch({ type: 'EDIT_TODO', payload: { userId, id, title, completed: !completed } })}
 				dense
 			>
 				<ListItemIcon>

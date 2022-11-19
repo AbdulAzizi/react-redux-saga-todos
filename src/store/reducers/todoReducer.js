@@ -8,6 +8,8 @@ const todoReducer = (state = [], action) => {
 				return todo;
 			});
 			return updatedTodos;
+		case 'REMOVE_TODO':
+			return state.filter(todo => todo.id !== action.payload.id);
 		default:
 			return state;
 	}
