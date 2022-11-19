@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
-import { setTodosWatcher } from './todoSaga';
+import { setTodosWatcher, editTodoWatcher } from './todoSaga';
 
 export function* rootWatcher() {
-	yield all([setTodosWatcher()]);
+	yield all([setTodosWatcher(), editTodoWatcher()]);
 }
