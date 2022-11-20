@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { Todo } from './Todo';
 import { List } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import { FETCH_TODOS } from '../store/actions/todoActions';
 
 export const Todos = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch({ type: 'FETCH_TODOS' });
+		dispatch({ type: FETCH_TODOS });
 	}, []);
 
 	const todos = useSelector(state => state.todos);
